@@ -8,21 +8,11 @@ public class Player : MonoBehaviour
 {
     public Text txt;
 
-    public Button btn;
-
     private NavMeshAgent nav;
 
     private void Start()
     {
-
-        MobileOrientationDetector.Init();
-
         nav = GetComponent<NavMeshAgent>();
-
-        btn.onClick.AddListener(delegate () {
-
-            MobileOrientationDetector.ScreenLock();
-        });
 
     }
 
@@ -40,6 +30,8 @@ public class Player : MonoBehaviour
 
                 txt.text = hit.point.ToString();
             }
+
+            API.SetScreen(false);
         }
     }
 }
